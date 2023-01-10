@@ -28,7 +28,27 @@
     width: 100%;
 }
 
-.restaurant-list {
+.restaurant-list{
     display: flex;
     flex-wrap: wrap;
+    padding-left: 20%;
+padding-right: 10%;
 }
+.search-bar{
+    height: 50px;
+    padding-left: 40%;
+}
+
+.search-bar > input {
+    margin: 10px;
+    height: 40px;
+    width: 300px;
+}
+
+
+.footer{
+    text-align: center;
+    padding: 1px;
+    background-color: rgb(236, 230, 228);
+    color: white;
+  }
