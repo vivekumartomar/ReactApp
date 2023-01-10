@@ -758,22 +758,25 @@ const restrautList = [
     },
   ];
 
-  const ReataurantCard = (props) => {
+  const ReataurantCard = ({name, cuisines, avgRating, cloudinaryImageId}) => {
+    // Using props destructuring
+    // const {name, cuisines, avgRating, cloudinaryImageId} = props.restrautr;
+    // console.log(props);
     return (
     <div className="card">
         <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+
-         props.restrautr.cloudinaryImageId} 
+         cloudinaryImageId} 
         alt="restaurant image"/>
-        <h3>{props.restrautr.name}</h3>
-        <h6>{props.restrautr.cuisines.join(", ")}</h6>
-        <h6>{props.restrautr.avgRating}</h6>
+        <h3>{name}</h3>
+        <h6>{cuisines.join(", ")}</h6>
+        <h6>{avgRating}</h6>
     </div>
   )}
 
 const BodyComp = () => (
     <div className="restaurant-list">
-{    restrautList.map((restrautra)=> {
-        return <ReataurantCard restrautr={restrautra.data} key={restrautra.data.id}/>
+{    restrautList.map((restra)=> {
+        return <ReataurantCard {...restra.data} key={restra.data.id}/>
     })}
     </div>
     );
