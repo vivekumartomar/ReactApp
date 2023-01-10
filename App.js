@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
 const Title =()=>(  
@@ -773,6 +773,22 @@ const restrautList = [
     </div>
   )}
 
+const SearchComponent = ()=>{
+    const [searchTxt, setSearchTxt] = useState("KFC");
+    const [searchTxt2, setSearchTxt2] = useState("False");
+    return(
+        <div className="search-bar">
+        <input type="text" name="searchTxt"
+         value={searchTxt}
+         onChange={(e)=>{setSearchTxt(e.target.value)}}
+         />
+        <button onClick={()=>setSearchTxt2((searchTxt2=="False")?"true":"False")}> Search</button>
+        <h1>{searchTxt2}</h1>
+        </div>
+
+    )
+}
+
 const BodyComp = () => (
     <div className="restaurant-list">
 {    restrautList.map((restra)=> {
@@ -787,6 +803,7 @@ const AppLayout = () =>{
     return (
         <>
         <Header/>
+        <SearchComponent/>
         <BodyComp/>
         <Footer />
         </>
