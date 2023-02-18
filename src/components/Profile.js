@@ -10,7 +10,7 @@ const Profile = ({name}) => {
       console.log('setInterval');
     }, 1000);
     return () => { // clear the timer always while leaving the page.
-      // similar to componentWillUnmount HERE.
+      // similar to 
       clearInterval(timer);
       console.log('clear timer');
     }
