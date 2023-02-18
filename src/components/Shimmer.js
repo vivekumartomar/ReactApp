@@ -1,4 +1,4 @@
-Shimmer = () =>{
+const Shimmer = () =>{
     return (
         <div className="restaurant-list">
             {
