@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline.js";
 const Title =()=>(  
     <a href="/">
         <img 
@@ -10,14 +11,18 @@ const Title =()=>(
 
 
 const Header = ()=>{
+    const isOnline = useOnline();
+    console.log(isOnline);
     return (
     <div className="header">
         <Title/>
         <div className="nav-items">
+            {(isOnline)? <h3>✅</h3> : <h3>🔴</h3>}
             <ul>
             <li><Link to={'/about'}>About Us</Link></li>
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/contact'}>Contact Us</Link></li>
+            <li><Link to={'/instamart'}>InstaMart</Link></li>
             <li>Cart</li>
             </ul>  
         </div>     
