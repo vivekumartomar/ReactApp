@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import BodyComp from "./src/components/Body";
@@ -10,13 +10,22 @@ import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
 import Profile from "./src/components/Profile";
 import Shimmer from "./src/components/Shimmer";
+import userContext from "./src/utils/userContext";
 
 const AppLayout = () =>{
+    const users = useContext(userContext);
+
+    const [user, setUser] = useState({
+        name:'ABC',
+        email:"test"
+    })
     return (
         <>
-        <Header/>
-        <Outlet/>
-        <Footer />
+        <userContext.Provider value={{user:user, setUser:setUser}}>
+            <Header/>
+            <Outlet/>
+            <Footer />
+        </userContext.Provider>
         </>
 
     )

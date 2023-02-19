@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline.js";
+import userContext from "../utils/userContext.js";
 const Title =()=>(  
     <a href="/">
         <img 
@@ -11,13 +13,15 @@ const Title =()=>(
 
 
 const Header = ()=>{
+    const {user} = useContext(userContext);
+    console.log(user);
     const isOnline = useOnline();
     console.log(isOnline);
     return (
     <div className="header">
         <Title/>
         <div className="nav-items">
-            {(isOnline)? <h3>✅</h3> : <h3>🔴</h3>}
+            {(isOnline)? <h3>✅ {user.name} </h3> : <h3>🔴</h3>}
             <ul>
             <li><Link to={'/about'}>About Us</Link></li>
             <li><Link to={'/'}>Home</Link></li>
